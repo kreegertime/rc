@@ -1,0 +1,96 @@
+" set t_Co=16
+
+" set term=screen-256color-bce
+" let g:solarized_termcolors=256
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+set t_Co=16
+set background=dark
+colorscheme solarized
+set cursorline
+
+" colorscheme grb256
+"colorscheme github
+" Toggles for light/black
+"set background=light
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+au BufNewFile,BufRead *.gradle setf groovy
+au BufRead,BufNewFile *.go set filetype=go
+au BufRead,BufNewFile *.rb    setl softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.ejs   setl softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.coffee   setl softtabstop=2 shiftwidth=2
+
+" Easy tab open
+nmap <leader>n :tabnew<CR>
+
+if has("autocmd")
+    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+    au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+endif
+
+set hlsearch
+" set cursorline
+
+" Theme support for dark themes.
+" colorscheme grb256
+" hi CursorLine ctermbg=black
+" hi LineNr ctermbg=black
+" hi CursorLineNr ctermfg=None
+" hi TabLineSel ctermfg=None
+" hi TabLineFill ctermfg=darkgrey
+" hi TabLineFill ctermfg=grey
+"hi Visual cterm=reverse
+" hi Search ctermfg=white ctermbg=darkgrey
+
+"set gfn=Source\ Code\ Pro:h11
+"set gfn=Monaco:h10
+"set gfn=Droid\ Sans\ Mono:h11
+"set gfn=Inconsolata:h13
+set gfn=Menlo\ Regular:h11
+"set gfn=Meslo\ LG\ S\ DZ\ Regular:h11
+
+"set gfn=ProggySquareTTSZ:h16
+"set noanti
+
+function ToggleFont()
+  if (&guifont == "ProggySquareTTSZ:h16")
+    set gfn=Inconsolata:h13
+    set antialias
+  else
+    set gfn=ProggySquareTTSZ:h16
+    set noantialias
+  endif
+endfunction
+
+function ToggleBackground()
+  if (&background == "light")
+      set background=dark
+  else
+      set background=light
+  endif
+endfunction
+
+:noremap <F4> :call ToggleFont()<CR>
+:noremap <F5> :call ToggleBackground()<CR>
+
+" disable syntastic on java
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['foo', 'bar'],
+                           \ 'passive_filetypes': ['java', 'objc', 'html'] }
+
+" gui settings
+" if (&t_Co == 256 || has('gui_running'))
+"   if ($TERM_PROGRAM == 'iTerm.app')
+" "    colorscheme grb256
+"     colorscheme solarized
+" "    colorscheme jellybeans
+"   else
+" "    colorscheme solarized
+"     colorscheme grb256
+"    " set transparency=3
+"   endif
+" endif
