@@ -1,0 +1,43 @@
+servers = (
+  {
+    address = "irc.mozilla.org";
+    chatnet = "Mozilla";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.strava.com";
+    chatnet = "Strava";
+    password = "strava09";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  Mozilla = {
+    type = "IRC";
+    autosendcmd = "/^msg NickServ IDENTIFY netra01;wait 2000";
+  };
+  Strava = { type = "IRC"; };
+};
+
+channels = (
+  { name = "#empty-nesters"; chatnet = "Mozilla"; autojoin = "yes"; },
+  { name = "#infra"; chatnet = "Strava"; autojoin = "yes"; },
+  { name = "#mobile"; chatnet = "Strava"; autojoin = "yes"; },
+  { name = "#lunchtime"; chatnet = "Strava"; autojoin = "yes"; }
+);
+settings = {
+  core = {
+    real_name = "Nick Kreeger";
+    user_name = "nickkreeger";
+    nick = "kreeger";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "fear3"; };
+  "perl/core/scripts" = { notifier_on_regex = "kreeger"; };
+};
