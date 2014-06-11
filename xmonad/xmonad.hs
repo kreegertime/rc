@@ -1,10 +1,18 @@
 
 import XMonad
+import XMonad.Hooks.DynamicLog
 
-main = xmonad $ defaultConfig
+main = xmonad =<< xmobar defaultConfig
     {
-        borderWidth = 2,
         terminal = "urxvt",
-        normalBorderColor = "#cccccc",
-        focusedBorderColor = "#cd8b00"
+        normalBorderColor = "#073642",
+        focusedBorderColor = "#93a1a1"
     }
+
+-- main = xmonad $ defaultConfig
+--     {
+--         borderWidth = 2,
+--         terminal = "urxvt",
+--         normalBorderColor = "#cccccc",
+--         focusedBorderColor = "#cd8b00"
+--     }
