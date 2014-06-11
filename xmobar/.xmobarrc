@@ -1,0 +1,16 @@
+
+Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=false:hinting=true"
+       , bgColor = "#002b36"
+       , fgColor = "#93a1a1"
+       , position = TopW L 100
+       , allDesktops = True
+       , commands = [ Run Weather "KSFO" ["-t","<skyCondition> <tempF>F <rh>%","-L","60","-H","77","--normal","#859900","--high","#dc322f","--low","#268bd2"] 6000
+                    , Run Cpu ["-t","<total>%", "-L","3","-H","30","--low","#268bd2","--normal","#93a1a1","--high","#dc322f"] 10
+                    , Run DynNetwork ["-L","0","-H","32","--normal","#859900","--high","#dc322f","-t","<rx>/<tx>", "-p", "3"] 10
+                    , Run Memory ["-t","<usedratio>%"] 10
+                    , Run Date "%a %b %_d %l:%M:%S" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %dynnetwork% | %KSFO% | <fc=#2aa198>%date%</fc>"
