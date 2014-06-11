@@ -1,0 +1,14 @@
+[user]
+    name = Nick Kreeger
+    email = kreeger@strava.com
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    br = branch
+[color]
+    ui = true
+[core]
+    editor = /usr/bin/vim
+[push]
+    default = simple
