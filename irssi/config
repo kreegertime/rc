@@ -6,14 +6,6 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-  },
-  {
-    address = "irc.strava.com";
-    chatnet = "Strava";
-    password = "strava09";
-    use_ssl = "yes";
-    ssl_verify = "no";
-    autoconnect = "yes";
   }
 );
 
@@ -26,10 +18,7 @@ chatnets = {
 };
 
 channels = (
-  { name = "#empty-nesters"; chatnet = "Mozilla"; autojoin = "yes"; },
-  { name = "#infra"; chatnet = "Strava"; autojoin = "yes"; },
-  { name = "#mobile"; chatnet = "Strava"; autojoin = "yes"; },
-  { name = "#lunchtime"; chatnet = "Strava"; autojoin = "yes"; }
+  { name = "#empty-nesters"; chatnet = "Mozilla"; autojoin = "yes"; }
 );
 settings = {
   core = {
